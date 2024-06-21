@@ -9,15 +9,36 @@ output: html_document
 require(tidyverse)
 require(tigerstats)
 triUmp <-read.csv(file="triUmpsal.csv",header=TRUE)
+
+druggies = select(triUmp, c(treatment, infected, DrugUser))
+druggies = filter(druggies, DrugUser == "yes")
+
+
 ```
 
+
 # Introduction
+
+$H_0$: The drug is not effective against aids in drug users  
+
+
+$H_A$: The drug is effective against aids in drug users
+
+  
+
+
 
 <!--In this section you explain what you are trying to show.  Where did the data come from?  What is the research or other question you are trying to answer?.  If you skimp in this section expect to be marked down in your grade. Paint a picture of the project a couple of paragraphs is expected!-->
 
 A new  preventative aides drug (triUmpsal) is under test in clinical trials. Consider only the DrugUsers, does this drug seem effective?  Hint - use dplyr to obtain that subpopulation with the filter command.
 
 # Methods
+
+Treatment is a categorical variable 
+
+Infected is a categorical variable 
+
+we use helper file cat~cat
 
 <!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method. Discuss what data manipulations may be needed for example subsetting or other binning procedures and what sort of graphical displays and inferential tools will be used!-->
 
@@ -28,10 +49,35 @@ A new  preventative aides drug (triUmpsal) is under test in clinical trials. Con
 ## Descriptive Results
 
 ### Graphical Descriptive Results
-
+ 
+ 
+```{r}
+barchartGC(~ infected + treatment,data=druggies)
+barchartGC(~ infected + treatment,data=druggies, type="percent")
+```
+ 
+ The graph above shows that the drug users with aids that took the drug have a lower percentage of having aids than those who took the placebo   
+ 
+ 
+ 
+ 
+ 
 <!--Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question. Bottom line is to explain the features of the graph that are relevant to conforming or departing to what is expected by your null hypothesis !-->
 
 ### Numerical Descriptive Results
+
+
+
+```{r}
+table1 <- xtabs(~infected + treatment, data=druggies)
+rowPerc(table1)
+colPerc(table1)
+```
+
+
+
+The data above shows that the percentage of drug users with aides who were   given the treatment  was lower than than those were given the placebo (24.29   vs. 75.71)  
+
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 

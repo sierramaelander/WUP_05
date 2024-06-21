@@ -102,4 +102,9 @@ The fisher exact test shows the p-value is .0000000423 this is less than 0.05 th
 
 # Discussion and Conclusion
 
+In conclusion we must reject H0 because acording to the data The drug is effective against aids in drug users. This is because the p-value shown in both tests (chi squared & Fisher exact) were less than 0.05. The odds ratio on the fisher test also showed that the odd were that the drug was more effective than the placebo in those with aids ( .3534:1) 
+
+
+
+
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
